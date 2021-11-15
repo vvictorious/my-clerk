@@ -4,15 +4,20 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #00b4d8;
+}
+
 .App {
   text-align: center;
+  font-family: Futura, sans-serif;
 }
 
 .btn {
   transition: all 0.3s ease;
   font-size: 1.6em;
-  background-color: rgba(103,58,183,0.1);
-  color: #333;
+  background-color: #0077b6;
+  color: #90e0ef;
   box-shadow: 0 0 2px 0px #333;
   border: none;
   padding: 0;
@@ -23,8 +28,52 @@
   align-self: center;
   cursor: pointer;
   outline: none;
+  transition: opacity .25s;
 }
 
 .btn:hover {
-  background-color: rgba(103,58,183,0.4);
+  opacity: .5;
+}
+
+.card {
+  text-align: center;
+  width: 300px;
+  padding: 25px 0;
+  height: 430px; 
+  margin: 5px;
+  background-color: #caf0f8;
+  transform: translateX(0);
+  transition: transform 0.25s;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+@media only screen and (min-width: 671px) {
+
+  .card {
+    width: 300px;
+    padding: 25px 0;
+    height: 400px; 
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .btn {
+    min-width: 30px;
+    line-height: 30px;
+  }
+
+}
+
+@media only screen and (max-width: 670px) {
+
+  .btn {
+    min-width: 25px;
+    line-height: 25px;
+  }
+
+  .card {
+    height: 400px;
+  }
+
 }

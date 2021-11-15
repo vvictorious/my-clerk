@@ -63,7 +63,7 @@ const App = () => {
         <h1>My Clerks</h1>
   
         <Carousel breakPoints={breakPoints} renderArrow={myArrow}>
-          {users ? users.map(user => (<Card user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
+          {users ? users.map(user => (<Card className='card' user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
         </Carousel>
       </div>
     );

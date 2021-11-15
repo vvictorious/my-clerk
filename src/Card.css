@@ -1,0 +1,20 @@
+.picture {
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  
+  .name {
+    margin-top: 25px;
+  }
+  
+  .email {
+    margin-top: 15px;
+  }
+  
+  .cell {
+    margin-top: 15px;
+  }
+  
+  .location {
+    margin-top: 15px;
+  }
