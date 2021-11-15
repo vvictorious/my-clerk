@@ -12,17 +12,31 @@ const App = () => {
   console.log(users)
 
   useEffect( () => {
-    axios.get('https://randomuser.me/api/?results=3')
+    axios.get('https://randomuser.me/api/?results=5')
       .then( response => {
         setUsers(response.data.results)
       })
   }, [])
 
+  const fetchMoreUsers = (pageIndex) => {
+    if (pageIndex === users.length - 1) {
+      console.log('fired')
+      axios.get('https://randomuser.me/api/?results=5')
+      .then( response => {
+        response.data.results.forEach( user => {
+          setUsers(users => [...users, user])
+        })
+      })
+    }
+  }
+
   return (
     <div className="App">
       <h1>My Clerks</h1>
 
-      <Carousel>
+      <Carousel onChange={(currentItem, pageIndex) =>
+        fetchMoreUsers(pageIndex)
+      }>
         {users ? users.map(user => (<Card user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
       </Carousel>
     </div>
