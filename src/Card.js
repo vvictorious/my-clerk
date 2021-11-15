@@ -1,9 +1,9 @@
 import React from 'react'
 import './Card.css';
 
-export const Card = ({user}) => {
+export const Card = ({user, cardColor}) => {
     return (
-        <div className='card' key={user.login.uuid}>
+        <div className={`card ${cardColor}`} key={user.login.uuid}>
             <img className='picture' src={user.picture.large} alt='profile-picture' />
             <p className='name'>{user.name.first} {user.name.last}</p>
             <p className='email'>{user.email}</p>

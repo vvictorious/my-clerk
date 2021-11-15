@@ -3,21 +3,26 @@ import axios from 'axios'
 import './App.css';
 import Carousel, {consts} from 'react-elastic-carousel';
 import { Card } from './Card'
+import Select from 'react-select'
 
 
 const App = () => {
 
   const [loading, setLoading] = useState(false) 
   const [users, setUsers] = useState(null) 
+  const [cardColor, setCardColor] = useState('lightblue') 
   
   const breakPoints = [
     {width: 1, itemsToShow: 1},
     {width: 550, itemsToShow: 2},
     {width: 768, itemsToShow: 3},
-
   ]
 
-  console.log(users)
+  const options = [
+    { value: 'lightblue', label: 'Light Blue' },
+    { value: 'lightgreen', label: 'Light Green' },
+    { value: 'lightgrey', label: 'Light Grey' }
+  ]
 
   useEffect( () => {
     setLoading(true)
@@ -31,7 +36,6 @@ const App = () => {
   }, [])
 
   const fetchMoreUsers = () => {
-    console.log('fetch more users ran')
     axios.get('https://randomuser.me/api/?results=6')
       .then( response => {
         response.data.results.forEach( user => {
@@ -50,8 +54,7 @@ const App = () => {
         {pointer}
       </button>
     )
-  }
-  
+  }  
 
   if (loading) {
     return (
@@ -61,9 +64,13 @@ const App = () => {
     return (
       <div className="App">
         <h1>My Clerks</h1>
+        
+        <div className='select-container'>
+          <Select onChange={e => setCardColor(e.value) } defaultValue={options[0]} className='select' options={options}  />
+        </div>
   
         <Carousel breakPoints={breakPoints} renderArrow={myArrow}>
-          {users ? users.map(user => (<Card className='card' user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
+          {users ? users.map(user => (<Card cardColor={cardColor} user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
         </Carousel>
       </div>
     );

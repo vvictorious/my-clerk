@@ -35,13 +35,35 @@ body {
   opacity: .5;
 }
 
+.select-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.select {
+  width: 50%;
+}
+
+.lightblue {
+  background-color: #caf0f8;
+}
+
+.lightgreen {
+  background-color: lightgreen;
+}
+
+.lightgrey {
+  background-color: lightgrey;
+}
+
 .card {
   text-align: center;
   width: 300px;
   padding: 25px 0;
   height: 430px; 
   margin: 5px;
-  background-color: #caf0f8;
+
   transform: translateX(0);
   transition: transform 0.25s;
   min-width: 400px;
