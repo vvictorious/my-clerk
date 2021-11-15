@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import Carousel from 'react-elastic-carousel';
 import './App.css';
+import Carousel from 'react-elastic-carousel';
+import { Card } from './Card'
+
 
 const App = () => {
 
@@ -19,6 +21,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>My Clerks</h1>
+
+      <Carousel>
+        {users ? users.map(user => (<Card user={user} key={user.login.uuid} />)) :(<h1>No Users</h1>)}         
+      </Carousel>
     </div>
   );
 }
