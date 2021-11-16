@@ -35,6 +35,14 @@ const App = () => {
       })
   }, [])
 
+  useEffect( () => {
+    setCardColor(localStorage.getItem('card-color'))
+  }, [])
+
+  useEffect( () => {
+    localStorage.setItem('card-color', cardColor)
+  }, [cardColor])
+
   const fetchMoreUsers = () => {
     axios.get('https://randomuser.me/api/?results=6')
       .then( response => {
@@ -56,6 +64,12 @@ const App = () => {
     )
   }  
 
+  // const defaultValue = () => {
+  //   const defaultColor = options.filter(color => color.value === cardColor) 
+  //   console.log(defaultColor)
+  //   return defaultColor
+  // }
+
   if (loading) {
     return (
       <h1>Loading...</h1>
@@ -66,7 +80,7 @@ const App = () => {
         <h1>My Clerks</h1>
         
         <div className='select-container'>
-          <Select onChange={e => setCardColor(e.value) } defaultValue={options[0]} className='select' options={options}  />
+          <Select onChange={e => setCardColor(e.value) }  className='select' options={options}  />
         </div>
   
         <Carousel breakPoints={breakPoints} renderArrow={myArrow}>
