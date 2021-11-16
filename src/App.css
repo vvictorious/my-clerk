@@ -13,6 +13,12 @@ body {
   font-family: Futura, sans-serif;
 }
 
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .btn {
   transition: all 0.3s ease;
   font-size: 1.6em;
@@ -63,11 +69,11 @@ body {
   padding: 25px 0;
   height: 430px; 
   margin: 5px;
-
   transform: translateX(0);
   transition: transform 0.25s;
   min-width: 400px;
   max-width: 400px;
+  border: 2px solid #03045e;
 }
 
 @media only screen and (min-width: 671px) {
