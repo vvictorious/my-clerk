@@ -69,7 +69,6 @@ const App = () => {
 
   const defaultValue = () => {
     const defaultColor = options.filter(color => color.value === cardColor) 
-    console.log(defaultColor)
     return defaultColor
   }
 
